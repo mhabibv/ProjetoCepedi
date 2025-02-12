@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/pwmCepedi.uf2'
+elf = 'build/pwmCepedi.elf'
