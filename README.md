@@ -74,3 +74,8 @@ O software foi desenvolvido para controlar a alternância do semáforo entre as 
 ### Considerações Finais
 
 Este sistema oferece uma alternativa acessível para deficientes visuais, permitindo que eles obtenham informações sobre o estado do semáforo através de sons, promovendo mais segurança e inclusão.
+
+---
+## Link demonstração
+
+https://youtu.be/XC6w5YpyXZM?feature=shared
