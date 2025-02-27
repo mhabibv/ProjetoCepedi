@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(pwmCepedi pwmCepedi.c )
+add_executable(pwmCepedi pwmCepedi.c)
 
 pico_set_program_name(pwmCepedi "pwmCepedi")
 pico_set_program_version(pwmCepedi "0.1")
@@ -46,8 +46,11 @@ pico_enable_stdio_usb(pwmCepedi 1)
 
 # Add the standard library to the build
 target_link_libraries(pwmCepedi
-        pico_stdlib
-        hardware_pwm)
+    pico_stdlib
+    hardware_i2c
+    hardware_adc
+    hardware_pwm
+    pico_bootrom)
 
 # Add the standard include files to the build
 target_include_directories(pwmCepedi PRIVATE

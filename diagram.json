@@ -1,17 +1,83 @@
 {
-    "version": 1,
-    "author": "Maria Valentina Habib",
-    "editor": "wokwi",
-    "parts": [
-      { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
-      { "type": "wokwi-servo", "id": "servo1", "top": 7.6, "left": 144, "attrs": {} }
-    ],
-    "connections": [
-      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
-      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-      [ "servo1:GND", "pico:GND.8", "black", [ "h-9.6", "v-9.6" ] ],
-      [ "servo1:V+", "pico:3V3", "red", [ "h-38.4", "v-19.1" ] ],
-      [ "pico:GP22", "servo1:PWM", "blue", [ "h32.66", "v-41.65" ] ]
-    ],
-    "dependencies": {}
-  }
+  "version": 1,
+  "author": "Maria Valentina Habib",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-pi-pico", "id": "pico", "top": 0, "left": 0, "attrs": { "builder": "pico-sdk" } },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 73.2,
+      "left": -159.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 169.2,
+      "left": -159.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 121.2,
+      "left": -159.4,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 205.55,
+      "left": -105.6,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 157.55,
+      "left": -105.6,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 109.55,
+      "left": -105.6,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer1",
+      "top": 50,
+      "left": 200,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 150,
+      "left": 150,
+      "rotate": 90,
+      "attrs": { "color": "blue", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP21", "buzzer1:2", "red", [ "h0" ] ],
+    [ "pico:GND.2", "led2:C", "black", [ "h-34.8", "v-22.35", "h-144", "v153.6" ] ],
+    [ "led1:C", "pico:GND.2", "black", [ "h-28.4", "v-57.6", "h144", "v22.35" ] ],
+    [ "led3:C", "pico:GND.2", "black", [ "h-28.4", "v-105.6", "h144", "v22.35" ] ],
+    [ "r3:1", "led1:A", "red", [ "v0" ] ],
+    [ "r2:1", "led3:A", "gold", [ "v0" ] ],
+    [ "r1:1", "led2:A", "green", [ "v0" ] ],
+    [ "r3:2", "pico:GP13", "red", [ "h27.6", "v51.15" ] ],
+    [ "r2:2", "pico:GP12", "gold", [ "v0" ] ],
+    [ "r1:2", "pico:GP11", "green", [ "h18", "v-64.05" ] ],
+    [ "btn1:2.l", "pico:GND.1", "black", [ "v0" ] ],
+    [ "btn1:1.l", "pico:GP6", "blue", [ "v0" ] ],
+    [ "buzzer1:1", "pico:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
